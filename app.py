@@ -439,8 +439,6 @@ def status():
 # ──────────────────────────────────────────────────────────────
 #  Entry Point
 # ──────────────────────────────────────────────────────────────
-if __name__ == "__main__":
-    port  = int(os.getenv("PORT", 5000))
-    debug = os.getenv("FLASK_DEBUG", "False").lower() == "true"
-    logger.info(f"🥗 {AGENT_NAME} starting on http://localhost:{port}")
-    app.run(host="0.0.0.0", port=port, debug=debug)
+
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
